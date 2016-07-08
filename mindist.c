@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <limits.h>
 #define MAX 10
+#define INIT 1
+#define FINAL N
 
 int A[MAX][MAX] = {0}, N, E;
 
@@ -27,8 +29,8 @@ int main(void) {
 		if(v1 ^ v2)
 			A[v1 - 1][v2 - 1] = A[v2 - 1][v1 - 1] = e;
 	}
-	dist = path(0, N - 1);
+	dist = path(INIT - 1, FINAL - 1);
 	if(dist ^ INT_MAX)
-		printf("MINIMUM DISTANCE BETWEEN %d and %d is %d\n", 1, N, dist);
+		printf("MINIMUM DISTANCE BETWEEN %d and %d is %d\n", INIT, FINAL, dist);
 	return 0;
 }
