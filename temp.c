@@ -43,7 +43,7 @@ void path(int S, int N, int G[N][N], int D[N], int B[N])
 				min = D[j], k = j;
 		B[k] = 1;
 		for(j = 0; j < N; j++)
-			if(!B[j] && G[k][j])
+			if(!B[j] && G[k][j] && (D[k] ^ INF))
 				D[j] = MIN(D[j], D[k] + G[k][j]);
 	}
 }
