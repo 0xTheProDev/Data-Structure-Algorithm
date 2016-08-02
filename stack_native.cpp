@@ -3,7 +3,8 @@
   WITH DYNAMIC MEMORY ALLOCATION (LINKED LIST)
   
   TIME COMPLEXITY:
-    PUSH(), POP(), TOP(), EMPTY() : O (1)
+    PUSH(), POP(), TOP(), EMPTY(), SWAP() : O (1)
+    SIZE() : O (N)
 */
 
 #include <iostream>
@@ -11,16 +12,14 @@
 
 using namespace std;
 
-typedef struct node{
+struct node{
     int data;
     struct node *prev;
-} node;
+};
 
 struct stack{
-    private:
     node *node_top = NULL;
     
-    public:
     void push(int z)
     {
         node *curr = (node*)malloc(sizeof(node));
@@ -43,6 +42,23 @@ struct stack{
     int top()
     {
         return (node_top -> data);
+    }
+    
+    unsigned int size()
+    {
+        unsigned int n = 0;
+        node *curr = node_top;
+        while(curr != NULL){
+            n++;
+            curr = curr -> prev;
+        }
+        return n;
+    }
+    
+    void swap(stack &s)
+    {
+    	node *tmp = s.node_top;
+    	s.node_top = this -> node_top, this -> node_top = tmp;
     }
 };
 
