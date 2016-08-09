@@ -13,7 +13,7 @@ bool isOperator (char);
 
 string prefix2Infix(string prefix)
 {
-    int i, n = prefix.length();
+    int i = 0, n = prefix.length();
     stack<string> operand;
     string temp, op1, op2;
     while(i < n){
