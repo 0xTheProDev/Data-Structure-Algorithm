@@ -24,5 +24,5 @@ int main(void)
   int N;
   scand(&N);
   printf("%d", N);
-	return 0;
+  return 0;
 }
